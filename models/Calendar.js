@@ -1,4 +1,4 @@
-const { Schema, model } = reuqire("mongoose");
+const { Schema, model } = require("mongoose");
 
 const CalendarSchema = new Schema({
     _user: {
