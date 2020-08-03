@@ -8,15 +8,23 @@ const NavBar = () => {
     const { isAuthenticated } = useAuth0();
 
     return (
-        <Navbar bg="primary" variant="dark">
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <div className="nav-container">
+        <Navbar fixed="top" classname="mr-auto" bg="light" expand="md">
+            <Navbar.Brand href="#home">
+                <img 
+                    src="https://icon-library.com/images/icon-for-calendar/icon-for-calendar-12.jpg"
+                    height="40"
+                    alt="logo"
+                    />
+            </Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Nav.Link href="#calender">Calender</Nav.Link>
+                
             </Nav>
             {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </Navbar>
+        </div>
     );
 };
 

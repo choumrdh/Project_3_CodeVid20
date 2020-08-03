@@ -7,7 +7,7 @@ const LogoutButton = () => {
 
     return (
         <Button
-            variant="outline-light"
+            variant="danger"
             type="submit"
             onClick={() => logout({ returnTo: window.location.origin, })}>
             Log Out
