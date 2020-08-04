@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
 import Loading from "./components/Loading/Loading";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer";
+
 
 function App() {
   const { isLoading } = useAuth0();

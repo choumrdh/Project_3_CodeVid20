@@ -5,7 +5,7 @@ function Footer() {
     return (
         <footer className="footer">
            
-                <span bg="light" expand="md" >
+                <span>
                 <p>Team: CodeVid-20</p> 
                 <p>Made By: Nathaniel Darnell, Nicholas Moschouris, Michelle Chou, Tongtong Ding</p>
                 
