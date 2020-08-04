@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema(
   {
-    _id: Schema.types.ObjectId,
     //   username: {
     //     type: String,
     //     require: [true, "Username is required"],
@@ -15,6 +15,7 @@ const UserSchema = new Schema(
     },
     password: {
       type: String,
+      required:[true, "Password is required"],
       minlength: [7, "Too short password"],
       trim: true,
     },
@@ -28,6 +29,14 @@ const UserSchema = new Schema(
     }
   }
 );
+
+UserSchema.methods.generateHash = (password)=>{
+  return bcrypt.hashSync(password, genSaltSync(8));
+};
+
+UserSchema.methods.validPassword = (inputPwd , dbPwd)=>{
+  return bcrypt.compareSync(inputPwd, dbPwd);
+};
 
 const User = model("User", UserSchema);
 

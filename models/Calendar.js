@@ -11,7 +11,7 @@ const CalendarSchema = new Schema({
     },
     startTime: {
       type: Number,
-      required: "Enter Event Time",
+      required: "Enter Event Start Time",
     },
     description: {
       type: String,
