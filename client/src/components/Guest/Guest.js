@@ -1,11 +1,14 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import Navbar from "../NavBar/NavBar"
 
 import "./Guest.css";
 
 const Guest = () => {
    
     return (
+        <>
+        <Navbar />
         <section className="full">
         <Container>
             <br/>
@@ -17,6 +20,7 @@ const Guest = () => {
             
         </Container>
         </section>
+        </>
     );
 };
 

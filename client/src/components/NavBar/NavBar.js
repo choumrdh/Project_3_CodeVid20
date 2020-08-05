@@ -10,7 +10,7 @@ const NavBar = () => {
 
     return (
      
-            <AppBar position="fixed" style={{ background: "#dedddc"}}>
+            <AppBar position="static" style={{ background: "#dedddc"}}>
                 <Tabs>
                     <img
                         src="https://icon-library.com/images/icon-for-calendar/icon-for-calendar-12.jpg"
