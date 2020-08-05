@@ -7,7 +7,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
 import Loading from "./components/Loading/Loading";
 import Footer from "./components/Footer/Footer";
-
+import CalendarPage from './pages/CalendarPage';
 
 function App() {
   const { isLoading } = useAuth0();
@@ -17,14 +17,16 @@ function App() {
   }
 
   return (
-    <Router history={history}>
-      <NavBar />
-      <br />
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
-      <Footer />
-    </Router>
+    // <Router history={history}>
+    //   <NavBar />
+    //   <br />
+    //   <Switch>
+    //     <Route exact path="/" component={Home} />
+    //   </Switch>
+    //   <Footer />
+    // </Router>
+    <CalendarPage/>
+
   );
 }
 
