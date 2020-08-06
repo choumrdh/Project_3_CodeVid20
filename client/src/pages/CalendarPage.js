@@ -1,15 +1,15 @@
 import React from "react";
 import { Grid } from '@material-ui/core';
-import Navbar from '../components/NavBar/NavBar'
+// import Navbar from '../components/NavBar/NavBar'
 import Calendar from '../components/Calendar/Calendar'
 import SideBar from '../components/SideBar/SideBar';
 
 export default function CalendarPage() {
     return (
         <>
-            
+
             <Grid container>
-            <Navbar />  
+                {/* <Navbar />   */}
                 <Grid item xs={3}>
                     <SideBar />
                 </Grid>
@@ -17,7 +17,7 @@ export default function CalendarPage() {
                     <Calendar />
                 </Grid>
             </Grid>
-             
+
         </>
     )
 }
