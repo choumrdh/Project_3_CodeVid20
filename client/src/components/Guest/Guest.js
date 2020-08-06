@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Navbar from "../NavBar/NavBar"
+// import Navbar from "../NavBar/NavBar"
 
 import "./Guest.css";
 
@@ -8,10 +8,10 @@ const Guest = () => {
    
     return (
         <>
-        <Navbar />
+        {/* <Navbar /> */}
         <section className="full">
         <Container>
-            <br/>
+           
             <h1 className="title">CalenDate</h1>
             <p className="description">
                 Please login in to access the application
