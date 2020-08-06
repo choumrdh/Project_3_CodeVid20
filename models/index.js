@@ -1,3 +1,4 @@
 module.exports = {
-  Calendar: require("./Calendar"),
+  Event: require("./Event"),
+  User: require("./User")
 };
