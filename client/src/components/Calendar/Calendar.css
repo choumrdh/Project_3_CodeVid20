@@ -36,7 +36,7 @@ display: block;
 width: 100%;
 padding: 1.75em 0;
 border-bottom: 1px solid lightgray;
-background: white;
+background: #f9efdc;
 }
 
 /* GRID */
@@ -64,9 +64,9 @@ text-align: center;
 /* Calendar */
 .calendar {
 display: block;
-/* position: relative; */
-width: 90%;
-background: white;
+position: relative;
+width: 100%;
+background: #f9efdc;
 /* border: 1px solid lightgray; */
 height: auto;
 margin:0 auto;
@@ -115,7 +115,7 @@ height: 6em;
 /* border-right: 1px solid lightgray; */
 overflow: hidden;
 cursor: pointer;
-background: white;
+background: #f9efdc;
 transition: 0.25s ease-out;
 }
 
