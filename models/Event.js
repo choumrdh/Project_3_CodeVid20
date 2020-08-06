@@ -23,6 +23,6 @@ const EventSchema = new Schema(
   }
 );
 
-const Event = model("Event", CalendarSchema);
+const Event = model("Event", EventSchema);
 
 module.exports = Event;
