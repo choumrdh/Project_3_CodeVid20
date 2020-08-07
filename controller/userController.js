@@ -1,52 +1,25 @@
-const express = require("express");
-const passport = require("passport")
-const router = express.Router();
-const db = require("../models");
+const User = require("../models/User");
 
-// need to double check this
-// require("../config/passport")("passport");
-// router.use(passport.initialize());
-// router.use(passport.session());
-
-router.get("/calendar", async (req, res) => {
-    try {
-        if (req.user) {
-            // need to find user and return calendar data
-        }
-    } catch (error) {
-        console.log(error)
-        res.status(500).send()
+module.exports = {
+    create: async (req, res)=>{
+        const { userEmail, password, events, userCreated} = req.body; // does events need to be passed here?
+        const user = await User.create({
+            userEmail,
+            password,
+            events,
+            userCreated
+        })
+        return res.send(user)
+    },
+    find: async (req, res)=>{
+        const user = await User.find()
+        return res.send(user)
+    },
+    userCalendar: async (req, res)=>{
+        const {id} = req.params;
+        const user = await User.findById(id).populate('event'); // populate('Event') is in reference to User.js ref "Event" in schema
+        res.send(user.events)
     }
-})
-
-// I think this needs a passport.authenticate equivalent for Auth0
-router.get("/api/users", async (req, res) => {
-    try {
-        // findAll equivalent goes here
-    } catch (error) {
-        console.log(error)
-        res.status(500).send()
-    }
-})
-
-router.get("/api/users/:id", async (req, res) => {
-    try {
-        // findAll where id: req.params.id equivalent goes here
-    } catch (error) {
-        console.log(error)
-        res.status(500).send()
-    }
-})
-
-// I think this needs a passport.authenticate equivalent for Auth0
-router.post("/api/users", async (req, res) => {
-    // db.user.create equivalent goes here
-})
-
-
-// I think this needs a passport.authenticate equivalent for Auth0
-router.delete("/api/users/:id", async (req, res) => {
-    // db.user.destroy equivalent goes here
-})
+};
 
 
