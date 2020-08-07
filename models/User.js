@@ -12,10 +12,10 @@ const UserSchema = new Schema({
         minlength: [7, "Too short password"],
         trim: true,
       },
-      events:{
+      events:[{
           type: Schema.Types.ObjectId,
           ref:"Event"
-      },
+      }],
       userCreated: {
         type: Date,
         default: Date.now(),
