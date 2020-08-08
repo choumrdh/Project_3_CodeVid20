@@ -2,23 +2,22 @@ const User = require("../models/User");
 
 module.exports = {
     create: async (req, res)=>{
-        const { userEmail, password, events, userCreated} = req.body; // does events need to be passed here?
-        const user = await User.create({
-            userEmail,
-            password,
-            events,
-            userCreated
-        })
-        return res.send(user)
+        let newUser = new User(req.body);
+        let savedUser = await newUser.save();
+        res.json(savedUser)
     },
     find: async (req, res)=>{
-        const user = await User.find()
-        return res.send(user)
+        let found = await User.find({userEmail: req.params.userEmail}); // is this find() correct?
+        res.json(found)
     },
-    userCalendar: async (req, res)=>{
+    all: async (req, res)=>{
+        let allUsers = await User.find({});
+        res.json(allUsers)
+    },
+    eventsByUser: async (req, res)=>{
         const {id} = req.params;
-        const user = await User.findById(id).populate('event'); // populate('Event') is in reference to User.js ref "Event" in schema
-        res.send(user.events)
+        const user = await User.findById(id).populate('events'); // populate('Event') is in reference to User.js ref "Event" in schema
+        res.json(user)
     }
 };
 
