@@ -12,7 +12,8 @@ const userSeed = [
     userEmail: "test@test.com",
     password: "P@ssword",
     events:[{
-      title: "Presnetation",
+      _id: 'ObjectId("5f2efnejlejlefmlkwjm")',
+      title: "Presentation",
       startTime: 8,
       description: "Class Presentation",
       Date: new Date ("2020-08-12"),
@@ -23,6 +24,7 @@ const userSeed = [
     userEmail: "fatso@test.com",
     password: "P@ssword",
     events:[{
+      _id:"ObjectId('4y384743u4ou')",
       title: "Feed Fatso",
       startTime: 12,
       description: "Feeding Fatso",
