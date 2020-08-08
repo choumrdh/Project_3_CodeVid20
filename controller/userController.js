@@ -15,8 +15,10 @@ module.exports = {
         res.json(allUsers)
     },
     eventsByUser: async (req, res)=>{
-        const {id} = req.params;
-        const user = await User.findById(id).populate('events'); // populate('Event') is in reference to User.js ref "Event" in schema
+        // const {_id} = req.params;
+        // console.log({_id})
+        // console.log(req.params.id)
+        const user = await User.findById(req.params.id).populate('events'); // populate('Event') is in reference to User.js ref "Event" in schema
         res.json(user)
     }
 };
