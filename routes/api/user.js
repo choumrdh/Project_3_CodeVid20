@@ -7,7 +7,7 @@ router.route("/")
 
 router
   .route("/:id")
-  .get(userController.find)
+  // .get(userController.find)
   .get(userController.eventsByUser)
 
 module.exports = router;
