@@ -11,7 +11,7 @@ module.exports = {
         res.json(found)
     },
     all: async (req, res)=>{
-        let allUsers = await User.find();
+        let allUsers = await User.find({});
         res.json(allUsers)
     },
     eventsByUser: async (req, res)=>{

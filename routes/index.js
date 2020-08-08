@@ -7,7 +7,8 @@ router.use("/api", apiRoutes);
 
 // need to check where the build folder is
 router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  // res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  console.log("user api?")
 });
 
 module.exports = router;

@@ -11,7 +11,7 @@ const userSeed = [
   {
     userEmail: "test@test.com",
     password: "P@ssword",
-    evnets:[{
+    events:[{
       title: "Presnetation",
       startTime: 8,
       description: "Class Presentation",
@@ -22,7 +22,7 @@ const userSeed = [
   {
     userEmail: "fatso@test.com",
     password: "P@ssword",
-    evnets:[{
+    events:[{
       title: "Feed Fatso",
       startTime: 12,
       description: "Feeding Fatso",
