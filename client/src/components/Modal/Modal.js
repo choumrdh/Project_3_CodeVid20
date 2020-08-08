@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import { Grid, TextField, Box, Button, Typography } from '@material-ui/core';
+import { Modal, Grid, TextField, Box, Button } from '@material-ui/core';
+
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -41,38 +41,48 @@ export default function SimpleModal(props) {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <Grid container>
-      <h5>What's the plan for today?</h5>
+      <h5>What's the plan for {props.date}?</h5>
         <Grid item xs={12}>
           <Box mb={2}>
-            <TextField 
+            <TextField className={classes.root}
             id="outlined-basic" 
             onChange={props.handleChange} 
             value={props.state.event} 
             name="event" 
             label="Event" 
-            variant="outlined" />
+            variant="outlined" 
+            fullWidth="true" />
           </Box>
         </Grid>
         <Grid item xs={12}>
           <Box mb={2}>
-            <TextField             
+            <TextField className={classes.root}             
             onChange={props.handleChange} 
             value={props.state.description} 
-            name="description" 
-            id="outlined-basic" 
+            name="description"
+            id="outlined-multiline-flexible"
+            multiline rowsMax={4}  
             label="Description" 
-            variant="outlined" />
+            variant="outlined" 
+            fullWidth="true" />
           </Box>
         </Grid>
         <Grid item xs={12}>
           <Box mb={2}>
-            <TextField             
+            <TextField            
             onChange={props.handleChange} 
             value={props.state.time} 
+            type="time"
             name="time" 
-            id="outlined-basic" 
+            id="time" 
             label="Time" 
-            variant="outlined" />
+            variant="outlined"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              step: 300, // 5 min
+            }} />
           </Box>
         </Grid>
         {/* <Grid item xs={12}>
@@ -93,7 +103,7 @@ export default function SimpleModal(props) {
             variant="contained">
             Submit
             </Button>
-            <Button 
+            <Button
             onClick={props.handleClose}
             variant="contained">
             Close
