@@ -6,12 +6,12 @@ const UserSchema = new Schema({
         match: [/.+\@.+\..+/, "email not valid"],
         required: [true, "User email is required"],
       },
-      password: {
-        type: String,
-        required: [true, "Password is required"],
-        minlength: [7, "Too short password"],
-        trim: true,
-      },
+      // password: {
+      //   type: String,
+      //   required: [true, "Password is required"],
+      //   minlength: [7, "Too short password"],
+      //   trim: true,
+      // },
       events:[{
           type: Schema.Types.ObjectId,
           ref:"Event"
