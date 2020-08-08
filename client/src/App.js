@@ -10,11 +10,11 @@ import NoMatch from "./pages/NoMatch";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  // const { isLoading } = useAuth0();
+  const { isLoading } = useAuth0();
 
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
 
