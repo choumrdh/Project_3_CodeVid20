@@ -10,25 +10,21 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/calendar", {
 const userSeed = [
   {
     userEmail: "test@test.com",
-    password: "P@ssword",
     events:[{
-      _id: 'ObjectId("5f2efnejlejlefmlkwjm")',
       title: "Presentation",
-      startTime: 8,
+      startTime: "10:00",
       description: "Class Presentation",
-      Date: new Date ("2020-08-12"),
+      Date: "08-12-2020",
     }],
     userCreated: new Date(Date.now()),
   },
   {
     userEmail: "fatso@test.com",
-    password: "P@ssword",
     events:[{
-      _id:"ObjectId('4y384743u4ou')",
       title: "Feed Fatso",
-      startTime: 12,
+      startTime: "09:30",
       description: "Feeding Fatso",
-      Date: new Date ("2020-08-12"),
+      Date: "08-11-2020",
     }],
     userCreated: new Date(Date.now()),
   },
