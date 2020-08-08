@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { format, startOfWeek, addDays, startOfMonth, endOfMonth, endOfWeek, isSameMonth, isSameDay, subMonths, addMonths } from "date-fns";
+import { format, startOfWeek, addDays, startOfMonth, endOfMonth, endOfWeek, subMonths, addMonths } from "date-fns";
 import "./Calendar.css";
 import Modal from "../Modal/Modal";
 import Header from "./Header/Header";
 import DayHeader from "./DayHeader/DayHeader";
+import DayCell from "./DayCell/DayCell";
 
 const Calendar = () => {
    const [currentDate, setCurrentDate] = useState(new Date());
@@ -32,8 +33,11 @@ const Calendar = () => {
    };
 
    const handleSubmit = event => {
-      console.log(format(selectedDate, "P"), state.event, state.description, state.time);
-
+      const thisDay=format(selectedDate, "P")
+      console.log(thisDay, state.event, state.description, state.time);
+      event.preventDefault();
+      //API.post({
+      //event: state.event, description: state.description, title: set.title, date:thisDay})
       //api post request
    };
 
@@ -65,16 +69,14 @@ const Calendar = () => {
             formattedDate = format(day, dateFormat);
             const dateClicked = day;
             days.push(
-               <div
-                  className={`column cell ${!isSameMonth(day, monthStart)
-                     ? "disabled" : isSameDay(day, selectedDate)
-                        ? "selected" : ""}`}
-                  key={day}
-                  onClick={() => onDateClick(dateClicked)}
-               >
-                  <span className="number">{formattedDate}</span>
-                  <span className="bg">{formattedDate}</span>
-               </div>
+               <DayCell
+                  day={day}
+                  monthStart={monthStart}
+                  dateClicked={dateClicked}
+                  selectedDate={selectedDate}
+                  onDateClick={onDateClick}
+                  formattedDate={formattedDate}
+                  />
             );
             day = addDays(day, 1);
          }

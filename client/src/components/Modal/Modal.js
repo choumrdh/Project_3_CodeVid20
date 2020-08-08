@@ -85,17 +85,6 @@ export default function SimpleModal(props) {
             }} />
           </Box>
         </Grid>
-        {/* <Grid item xs={12}>
-          <Box mb={2}>
-            <TextField             
-            onChange={props.handleChange} 
-            value={props.state.type} 
-            name="type" 
-            id="outlined-basic" 
-            label="Type" 
-            variant="outlined" />
-          </Box>
-        </Grid> */}
         <Grid>
           <Box mb={2}>
             <Button 
