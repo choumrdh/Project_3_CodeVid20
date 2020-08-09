@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SideBar() {
+export default function SideBar({ user }) {
   const classes = useStyles();
 
   return (
@@ -24,8 +24,9 @@ export default function SideBar() {
         <CardActionArea>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Upcoming Events
-          </Typography>
+              Hello, {user.nickname} <img src={user.picture} className ="profile" style={{ width: "30px" }} alt="profile"></img>
+            </Typography>
+            
             <Typography variant="body2" color="textSecondary" component="p">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis aenean et tortor at risus viverra adipiscing at in. Suscipit adipiscing bibendum est ultricies integer quis. Amet venenatis urna cursus eget nunc. Molestie at elementum eu facilisis sed odio morbi quis. Fermentum iaculis eu non diam phasellus vestibulum lorem. Mollis aliquam ut porttitor leo a diam sollicitudin tempor. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Quam nulla porttitor massa id neque aliquam vestibulum morbi blandit. Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Interdum velit laoreet id donec ultrices tincidunt arcu non. Quisque id diam vel quam elementum pulvinar.
 
@@ -42,6 +43,6 @@ export default function SideBar() {
         </Button> */}
         </CardActions>
       </Card>
-    </div>
+    </div >
   );
 }
