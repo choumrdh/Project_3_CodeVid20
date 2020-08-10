@@ -17,9 +17,9 @@ const onRedirectCallback = (appState) => {
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-      domain={process.env.REACT_APP_DOMAIN}
-      clientId={process.env.REACT_APP_CLIENT_ID}
-      audience={process.env.REACT_APP_AUDIENCE}
+      domain={process.env.AUTH0_DOMAIN}
+      clientId={process.env.AUTH0_CLIENT_ID}
+      // audience={process.env.REACT_APP_AUDIENCE}
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}>
       <App />
