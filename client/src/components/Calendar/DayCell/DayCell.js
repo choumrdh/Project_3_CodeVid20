@@ -1,12 +1,10 @@
 import React from "react";
-import { isSameMonth, isSameDay } from "date-fns";
 
-
-export default function DayCell({ monthStart, dateClicked, day, selectedDate, onDateClick, formattedDate}) {
+export default function DayCell({ dateClicked, day, isSelected, onDateClick, formattedDate, isDisabled }) {
     return (
         <div
-            className={`column cell ${!isSameMonth(day, monthStart)
-                ? "disabled" : isSameDay(day, selectedDate)
+            className={`column cell ${isDisabled
+                ? "disabled" : isSelected
                     ? "selected" : ""}`}
             key={day}
             onClick={() => onDateClick(dateClicked)}
