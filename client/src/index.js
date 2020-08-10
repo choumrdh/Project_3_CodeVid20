@@ -22,6 +22,7 @@ ReactDOM.render(
       audience={process.env.REACT_APP_AUDIENCE}
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}>
+      {console.log("process.env",process.env)}
       <App />
     </Auth0Provider>
   </React.StrictMode>,
