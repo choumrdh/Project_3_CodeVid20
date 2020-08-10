@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { format, startOfWeek, addDays, startOfMonth, endOfMonth, endOfWeek, subMonths, addMonths } from "date-fns";
+import { format, subMonths, addMonths } from "date-fns";
 import "./Calendar.css";
 import Modal from "../Modal/Modal";
 import Header from "./Header/Header";
 import DayHeader from "./DayHeader/DayHeader";
-import DayCell from "./DayCell/DayCell";
+import DayRow from "./DayRow/DayRow";
 
 const Calendar = () => {
    const [currentDate, setCurrentDate] = useState(new Date());
@@ -27,18 +27,22 @@ const Calendar = () => {
    const handleChange = event => {
       const { name, value } = event.target;
       setState({
-         ...state,
-         [name]: value
+         ...state, [name]: value
       })
    };
 
    const handleSubmit = event => {
-      const thisDay=format(selectedDate, "P")
+      const thisDay = format(selectedDate, "P")
       console.log(thisDay, state.event, state.description, state.time);
       event.preventDefault();
       //API.post({
       //event: state.event, description: state.description, title: set.title, date:thisDay})
       //api post request
+      setState({
+         event: "",
+         description: "",
+         time: "",
+      })
    };
 
    const nextMonth = () => {
@@ -54,40 +58,6 @@ const Calendar = () => {
       handleOpen();
    };
 
-   const cells = () => {
-      const monthStart = startOfMonth(currentDate); //returns start of month for current date
-      const monthEnd = endOfMonth(monthStart); //returns last day of month for the start of month date
-      const startDate = startOfWeek(monthStart);//returns starting date of week for start of month
-      const endDate = endOfWeek(monthEnd);//return the end of a week for the last day of the month
-      const dateFormat = "d";
-      const rows = [];
-      let days = [];
-      let day = startDate;
-      let formattedDate = "";
-      while (day <= endDate) {
-         for (let i = 0; i < 7; i++) {
-            formattedDate = format(day, dateFormat);
-            const dateClicked = day;
-            days.push(
-               <DayCell
-                  day={day}
-                  monthStart={monthStart}
-                  dateClicked={dateClicked}
-                  selectedDate={selectedDate}
-                  onDateClick={onDateClick}
-                  formattedDate={formattedDate}
-                  />
-            );
-            day = addDays(day, 1);
-         }
-         rows.push(
-            <div className="row" key={day}> {days} </div>
-         );
-         days = [];
-      }
-      return <div className="body">{rows}</div>;
-   };
-
    return (
       <div className="calendar">
          <Modal open={open}
@@ -98,16 +68,18 @@ const Calendar = () => {
             handleSubmit={handleSubmit}
             state={state}
          />
-         <div>
-            <Header
-               prevMonth={prevMonth}
-               nextMonth={nextMonth}
-               currentDate={format(currentDate, "MMMM yyyy")}/>
-         </div>
-         <div><DayHeader
-               currentDate={currentDate}/>
-         </div>
-         <div>{cells()}</div>
+         <Header
+            prevMonth={prevMonth}
+            nextMonth={nextMonth}
+            currentDate={format(currentDate, "MMMM yyyy")} 
+         />
+         <DayHeader
+            currentDate={currentDate} 
+         />     
+         <DayRow
+            currentDate={currentDate}
+            onDateClick={onDateClick}
+         />
       </div>
    );
 };
