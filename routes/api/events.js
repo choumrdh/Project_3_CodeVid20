@@ -12,4 +12,8 @@ router
   .put(eventsController.update)
   .delete(eventsController.remove);
 
+router
+  .route("/upcoming")
+  .post(eventsController.findUpcomingByDates);
+
 module.exports = router;
