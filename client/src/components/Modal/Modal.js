@@ -51,7 +51,7 @@ export default function SimpleModal(props) {
             name="event" 
             label="Event" 
             variant="outlined" 
-            fullWidth="true" />
+            fullWidth={true} />
           </Box>
         </Grid>
         <Grid item xs={12}>
@@ -64,7 +64,7 @@ export default function SimpleModal(props) {
             multiline rowsMax={4}  
             label="Description" 
             variant="outlined" 
-            fullWidth="true" />
+            fullWidth={true} />
           </Box>
         </Grid>
         <Grid item xs={12}>
@@ -87,7 +87,7 @@ export default function SimpleModal(props) {
         </Grid>
         <Grid>
           <Box mb={2}>
-            <Button 
+            <Button
             onClick={props.handleSubmit}
             variant="contained">
             Submit

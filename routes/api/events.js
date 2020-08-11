@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const eventsController = require("../../controller/eventController");
 
+
 router.route("/")
   .get(eventsController.findAll)
   .post(eventsController.create);

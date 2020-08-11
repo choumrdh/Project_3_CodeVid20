@@ -22,8 +22,9 @@ export default {
     return axios.get("api/user/events" + userId);
   },
   // create an event
-  createEvent: function () {
-    return axios.post("/api/events");
+  createEvent: function (newUser) {
+    console.log(newUser);
+    return axios.post("/api/events", newUser);
   },
   //   update existing event by using event id
   updateEvent: function (eventId) {
