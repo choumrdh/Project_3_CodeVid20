@@ -14,7 +14,7 @@ export default function CalendarPage() {
                     <SideBar user={user} />
                 </Grid>
                 <Grid item xs={9}>
-                    <Calendar />
+                    <Calendar user={user}/>
                 </Grid>
             </Grid>
             <br />

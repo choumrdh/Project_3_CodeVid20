@@ -5,8 +5,9 @@ import Modal from "../Modal/Modal";
 import Header from "./Header/Header";
 import DayHeader from "./DayHeader/DayHeader";
 import DayRow from "./DayRow/DayRow";
+import API from "../../utils/API";
 
-const Calendar = () => {
+const Calendar = ({user}) => {
    const [currentDate, setCurrentDate] = useState(new Date());
    const [selectedDate, setSelectedDate] = useState(new Date());
    const [open, setOpen] = useState(false);
@@ -32,12 +33,21 @@ const Calendar = () => {
    };
 
    const handleSubmit = event => {
+      event.preventDefault();
       const thisDay = format(selectedDate, "P")
       console.log(thisDay, state.event, state.description, state.time);
-      event.preventDefault();
-      //API.post({
-      //event: state.event, description: state.description, title: set.title, date:thisDay})
-      //api post request
+      console.log(user.email);
+      const newUser = {userEmail: user.email}
+      // newUser.userEmail: user.email
+      // newUser.title = state.event
+      // newUser.startTime=state.time
+      // newUser.description=state.description
+      // newUser.Date=thisDay
+      
+      API.createUser(newUser)
+      .then(results=>{
+         console.log("results=",results)
+      })
       setState({
          event: "",
          description: "",
