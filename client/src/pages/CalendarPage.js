@@ -1,23 +1,26 @@
-import React from "react";
-import { Grid } from '@material-ui/core';
-import Calendar from '../components/Calendar/Calendar'
-import SideBar from '../components/SideBar/SideBar';
+import React, { useState } from "react";
+import { Grid } from "@material-ui/core";
+import Calendar from "../components/Calendar/Calendar";
+import SideBar from "../components/SideBar/SideBar";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import API from "../utils/API";
 
 export default function CalendarPage() {
-    const { user } = useAuth0();
-    return (
-        <>
-            <Grid container>
-                <Grid item xs={3}>
-                    <SideBar user={user} />
-                </Grid>
-                <Grid item xs={9}>
-                    <Calendar user={user}/>
-                </Grid>
-            </Grid>
-            <br />
-        </>
-    )
+  const { user } = useAuth0();
+  const [userId, setUserId] = useState(0);
+  API.createUser({ userEmail: user.email }).then((res) => setUserId(res.data._id));
+
+  return (
+    <>
+      <Grid container>
+        <Grid item xs={3}>
+          <SideBar user={user} />
+        </Grid>
+        <Grid item xs={9}>
+          <Calendar userId={userId} />
+        </Grid>
+      </Grid>
+      <br />
+    </>
+  );
 }
