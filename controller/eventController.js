@@ -7,11 +7,20 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(500).json(err));
   },
+
   findById: function (req, res) {
     db.Event.find({ _id: req.params.id })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(500).json(err));
   },
+
+  findUpcomingByDates: function (req,res) {
+    console.log(req.body);
+    db.Event.find({Date:{$in:req.body.dates}})
+    .then((dbModel)=>res.json(dbModel))
+    .catch((err) => res.status(500).json(err));
+  },
+
   create: function (req, res) {
     db.Event.create(req.body)
       .then((dbModel) => {

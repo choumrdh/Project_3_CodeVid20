@@ -7,7 +7,7 @@ import DayHeader from "./DayHeader/DayHeader";
 import DayRow from "./DayRow/DayRow";
 import API from "../../utils/API";
 
-const Calendar = ({userId}) => {
+const Calendar = ({userId, setSubmitTime}) => {
    const [currentDate, setCurrentDate] = useState(new Date());
    const [selectedDate, setSelectedDate] = useState(new Date());
    const [open, setOpen] = useState(false);
@@ -44,13 +44,16 @@ const Calendar = ({userId}) => {
       description:state.description,
       Date:thisDay,
       }
-      API.createEvent(newEvent).then(res=>console.log(res));
+      API.createEvent(newEvent).then(()=>{
+         setState({
+            event: "",
+            description: "",
+            time: "",
+         })
+
+         setSubmitTime(new Date().getTime());
+      });
       
-      setState({
-         event: "",
-         description: "",
-         time: "",
-      })
    };
 
    const nextMonth = () => {

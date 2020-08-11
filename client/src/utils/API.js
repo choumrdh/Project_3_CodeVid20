@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/user");
   },
   // find User in database
-  findUser: function(userId){
+  findUser: function (userId) {
     return axios.get("/api/user/" + userId)
   },
   //  create/post user
@@ -20,6 +20,10 @@ export default {
   // find events using user id
   getEventsByUser: function (userId) {
     return axios.get("api/user/events" + userId);
+  },
+
+  getUpcomingEventsByDates: function (dates) {
+    return axios.post("api/events/upcoming", { dates: dates });
   },
   // create an event
   createEvent: function (newUser) {
