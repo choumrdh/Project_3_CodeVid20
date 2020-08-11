@@ -8,6 +8,7 @@ function NoMatch() {
 
             <Grid item xs={12}>
                 <img src="https://cdn.dribbble.com/users/1963449/screenshots/5915645/404_not_found.png" 
+                alt="no match"
                  width = "100%"
                  height = "550"
                 />

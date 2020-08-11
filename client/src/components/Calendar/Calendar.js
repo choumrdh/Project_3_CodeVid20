@@ -7,7 +7,7 @@ import DayHeader from "./DayHeader/DayHeader";
 import DayRow from "./DayRow/DayRow";
 import API from "../../utils/API";
 
-const Calendar = ({user}) => {
+const Calendar = ({userId}) => {
    const [currentDate, setCurrentDate] = useState(new Date());
    const [selectedDate, setSelectedDate] = useState(new Date());
    const [open, setOpen] = useState(false);
@@ -36,18 +36,16 @@ const Calendar = ({user}) => {
       event.preventDefault();
       const thisDay = format(selectedDate, "P")
       console.log(thisDay, state.event, state.description, state.time);
-      console.log(user.email);
-      const newUser = {userEmail: user.email}
-      // newUser.userEmail: user.email
-      // newUser.title = state.event
-      // newUser.startTime=state.time
-      // newUser.description=state.description
-      // newUser.Date=thisDay
       
-      API.createUser(newUser)
-      .then(results=>{
-         console.log("results=",results)
-      })
+      const newEvent ={
+      user: userId,
+      title :state.event,
+      startTime:state.time,
+      description:state.description,
+      Date:thisDay,
+      }
+      API.createEvent(newEvent).then(res=>console.log(res));
+      
       setState({
          event: "",
          description: "",

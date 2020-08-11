@@ -10,8 +10,8 @@ export default {
     return axios.get("/api/user/" + userId)
   },
   //  create/post user
-  createUser: function () {
-    return axios.post("api/user");
+  createUser: function (userData) {
+    return axios.post("api/user", userData);
   },
   // get all events from database
   getAllEvents: function () {

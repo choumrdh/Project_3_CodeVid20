@@ -2,12 +2,18 @@ const User = require("../models/User");
 
 module.exports = {
     create: async (req, res)=>{
-        let newUser = new User(req.body);
+        let found = await User.findOne({userEmail: req.body.userEmail})
+        if (found){
+            res.json(found)
+        }else{
+            let newUser = new User(req.body);
         let savedUser = await newUser.save();
         res.json(savedUser)
+        }
+        
     },
     find: async (req, res)=>{
-        let found = await User.find({userEmail: req.params.userEmail}); // is this find() correct?
+        let found = await User.findOne({userEmail: req.body.userEmail}); // is this find() correct?
         res.json(found)
     },
     all: async (req, res)=>{
