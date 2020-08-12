@@ -6,7 +6,7 @@
 
 ##### Team Members: Nathaniel, Michelle, TongTong and Nicholas
 
-- An app that help user keep track of daily life.
+- An app that help users keep track of their daily life.
 - This project showcases how to add authentication using `Auth0`, `React`, `Node`, and `MongoDb`library.
 
 ---
