@@ -22,6 +22,10 @@
     "dependencies": {
         "@material-ui/core": "^4.11.0",
         "@material-ui/system": "^4.9.14",
+<<<<<<< HEAD
+=======
+        "date-fns": "^2.15.0",
+>>>>>>> 845ae0da86a402552dd0e6e7792cb2418bdb29c8
         "axios": "^0.19.2",
         "bcrypt": "^5.0.0",
         "bootstrap": "^4.5.1",
