@@ -18,6 +18,7 @@ const useStyles = makeStyles({
 });
 
 export default function SideBar({ user, submitTime }) {
+  console.log("user", user)
   const classes = useStyles();
 
   const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -37,7 +38,7 @@ export default function SideBar({ user, submitTime }) {
 
   useEffect(() => {
     console.log("update.....")
-    API.getUpcomingEventsByDates(getUpcomingDates(5))
+    API.getUpcomingEventsByDates(getUpcomingDates(5),user.email)
       .then(events => { setUpcomingEvents(events.data) })
   },[submitTime])
 
@@ -57,6 +58,7 @@ export default function SideBar({ user, submitTime }) {
                 {
                   upcomingEvents.map((event, i)=>{
                   return <li key={i}>{event.title}</li>
+                          
                   })
                 }
               </ul>
