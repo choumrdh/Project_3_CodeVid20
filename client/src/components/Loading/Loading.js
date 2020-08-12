@@ -1,10 +1,10 @@
 import React from "react";
-import { Spinner } from "react-bootstrap";
+import { CircularProgress } from "@material-ui/core";
 import "./Loading.css";
 
 const Loading = () => {
     return (
-        <Spinner animation="border" role="status" className="loading"></Spinner>
+        <CircularProgress animation="border" role="status" className="loading" ></CircularProgress>
     );
 };
 

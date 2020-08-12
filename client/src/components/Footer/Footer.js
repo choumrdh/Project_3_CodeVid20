@@ -1,10 +1,10 @@
 import React from 'react';
 import "./Footer.css"
-// import { AppBar } from "@material-ui/core";
+
 
 function Footer() {
     return (
-        // <AppBar position="sticky" style={{ color: "black", background: "#dedddc" }}>
+       
             <footer className="footer">
 
                 <span>
@@ -14,7 +14,7 @@ function Footer() {
                 </span>
 
             </footer>
-        // </AppBar>
+       
     );
 };
 
