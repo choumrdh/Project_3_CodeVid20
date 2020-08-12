@@ -4,6 +4,7 @@ import Calendar from "../components/Calendar/Calendar";
 import SideBar from "../components/SideBar/SideBar";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
+import './styles.css';
 
 export default function CalendarPage() {
   const { user } = useAuth0();
@@ -20,7 +21,7 @@ export default function CalendarPage() {
     <>
       <Grid container>
         <Grid item xs={3}>
-          <SideBar user={user} submitTime={submitTime} />
+            <SideBar user={user} submitTime={submitTime} />
         </Grid>
         <Grid item xs={9}>
           <Calendar
