@@ -14,11 +14,17 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  findUpcomingByDates: function (req,res) {
-    console.log(req.body);
-    db.Event.find({Date:{$in:req.body.dates}})
-    .then((dbModel)=>res.json(dbModel))
-    .catch((err) => res.status(500).json(err));
+  findUpcomingByDates: async function (req, res) {
+    try {
+      const user = await db.User.findOne({ userEmail: req.body.email }).exec();
+      const upcomingEvent = await db.Event.find({
+        Date: { $in: req.body.dates },
+        user: user._id,
+      });
+      res.json(upcomingEvent);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   },
 
   create: function (req, res) {

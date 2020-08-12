@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import Calendar from "../components/Calendar/Calendar";
 import SideBar from "../components/SideBar/SideBar";
@@ -10,18 +10,23 @@ export default function CalendarPage() {
   const [userId, setUserId] = useState(0);
   const [submitTime, setSubmitTime] = useState(0);
 
-  API.createUser({ userEmail: user.email }).then((res) => setUserId(res.data._id));
-
+  useEffect(() => {
+    API.createUser({ userEmail: user.email }).then((res) =>
+      setUserId(res.data._id)
+    );
+  }, []);
 
   return (
     <>
       <Grid container>
         <Grid item xs={3}>
-          <SideBar user={user} submitTime={submitTime}/>
+          <SideBar user={user} submitTime={submitTime} />
         </Grid>
         <Grid item xs={9}>
-          <Calendar userId={userId} setSubmitTime={(timeStamp)=>setSubmitTime(timeStamp)} />
-
+          <Calendar
+            userId={userId}
+            setSubmitTime={(timeStamp) => setSubmitTime(timeStamp)}
+          />
         </Grid>
       </Grid>
       <br />

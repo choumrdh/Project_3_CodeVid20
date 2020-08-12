@@ -22,8 +22,8 @@ export default {
     return axios.get("api/user/events" + userId);
   },
 
-  getUpcomingEventsByDates: function (dates) {
-    return axios.post("api/events/upcoming", { dates: dates });
+  getUpcomingEventsByDates: function (dates, email) {
+    return axios.post("api/events/upcoming", { dates, email });
   },
   // create an event
   createEvent: function (newUser) {
