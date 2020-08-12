@@ -51,12 +51,13 @@ export default function SideBar({ user, submitTime }) {
             <Typography gutterBottom variant="h5" component="h2">
               Hello, {user.nickname} <img src={user.picture} className="profile" style={{ width: "30px" }} alt="profile"></img>
             </Typography>
-
             <Typography variant="body2" color="textSecondary" component="p">
               <ul>
                 {
                   upcomingEvents.map((event, i)=>{
-                  return <li key={i}>{event.title}</li>
+                  return (<><h5 key={i}>{event.Date} {event.startTime}</h5>
+                          <h6>{event.title}</h6>
+                          <p>{event.description}</p></>)
                   })
                 }
               </ul>

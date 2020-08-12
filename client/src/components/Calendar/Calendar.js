@@ -6,6 +6,7 @@ import Header from "./Header/Header";
 import DayHeader from "./DayHeader/DayHeader";
 import DayRow from "./DayRow/DayRow";
 import API from "../../utils/API";
+import moment from 'moment';
 
 const Calendar = ({userId, setSubmitTime}) => {
    const [currentDate, setCurrentDate] = useState(new Date());
@@ -34,13 +35,18 @@ const Calendar = ({userId, setSubmitTime}) => {
 
    const handleSubmit = event => {
       event.preventDefault();
-      const thisDay = format(selectedDate, "P")
+      const thisDay = format(selectedDate, "P");
       console.log(thisDay, state.event, state.description, state.time);
+      function convert(input) {
+         return moment(input, 'HH:mm:ss').format('h:mm:ss A');
+     };
+     const startTime = convert(state.time);
+     console.log(startTime)
       
       const newEvent ={
       user: userId,
       title :state.event,
-      startTime:state.time,
+      startTime: startTime,
       description:state.description,
       Date:thisDay,
       }
