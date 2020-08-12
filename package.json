@@ -22,13 +22,8 @@
     "dependencies": {
         "@material-ui/core": "^4.11.0",
         "@material-ui/system": "^4.9.14",
-<<<<<<< HEAD
-=======
-        "date-fns": "^2.15.0",
->>>>>>> 845ae0da86a402552dd0e6e7792cb2418bdb29c8
         "axios": "^0.19.2",
         "bcrypt": "^5.0.0",
-        "bootstrap": "^4.5.1",
         "date-fns": "^2.15.0",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
@@ -40,6 +35,5 @@
         "npm": "^6.14.7",
         "passport": "^0.4.1",
         "passport-auth0": "^1.3.3",
-        "react-bootstrap": "^1.3.0"
     }
 }
