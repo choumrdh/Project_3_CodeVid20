@@ -18,6 +18,7 @@ const useStyles = makeStyles({
 });
 
 export default function SideBar({ user, submitTime }) {
+  console.log("user", user)
   const classes = useStyles();
 
   const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -37,7 +38,7 @@ export default function SideBar({ user, submitTime }) {
 
   useEffect(() => {
     console.log("update.....")
-    API.getUpcomingEventsByDates(getUpcomingDates(5))
+    API.getUpcomingEventsByDates(getUpcomingDates(5),user.email)
       .then(events => { setUpcomingEvents(events.data) })
   },[submitTime])
 
@@ -51,17 +52,17 @@ export default function SideBar({ user, submitTime }) {
             <Typography gutterBottom variant="h5" component="h2">
               Hello, {user.nickname} <img src={user.picture} className="profile" style={{ width: "30px" }} alt="profile"></img>
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              <ul>
+            {/* <Typography variant="body2" color="textSecondary" component="p">
+              <div> */}
                 {
                   upcomingEvents.map((event, i)=>{
-                  return (<><h5 key={i}>{event.Date} {event.startTime}</h5>
-                          <h6>{event.title}</h6>
-                          <p>{event.description}</p></>)
+                  return (<><Typography key={i} component="h5">{event.Date}: {event.startTime}</Typography>
+                          <Typography component="h6">{event.title}</Typography>
+                          <Typography gutterBottom variant="body1">{event.description}</Typography></>)
                   })
                 }
-              </ul>
-          </Typography>
+              {/* </div>
+          </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
