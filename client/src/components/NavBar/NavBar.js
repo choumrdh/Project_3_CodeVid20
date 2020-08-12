@@ -17,9 +17,7 @@ const NavBar = () => {
                     height="40"
                     alt="logo"
                 />
-                <Tab style={{ color: "black" }} label="home" href="#home" />
-
-                <Tab style={{ color: "black" }} label="calendar" href="#calender" />
+                <Tab style={{ color: "black" }} label="Calendate" href="https://github.com/choumrdh/Project_3_CodeVid20" target="_blank" />
                 
                 {isAuthenticated ? <LogoutButton /> : <LoginButton />}
             </Tabs>
