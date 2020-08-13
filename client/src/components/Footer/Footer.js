@@ -8,8 +8,8 @@ function Footer() {
             <footer className="footer">
 
                 <span>
-                    <p>Team: CodeVid-20</p>
-                    <p>Made By: Nathaniel Darnell, Nicholas Moschouris, Michelle Chou, Tongtong Ding</p>
+                  
+                    <p> &hearts; Made By: Nathaniel Darnell, Nicholas Moschouris, Michelle Chou, Tongtong Ding</p>
 
                 </span>
 
