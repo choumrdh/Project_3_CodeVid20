@@ -6,12 +6,6 @@ const UserSchema = new Schema({
         match: [/.+\@.+\..+/, "email not valid"],
         required: [true, "User email is required"],
       },
-      // password: {
-      //   type: String,
-      //   required: [true, "Password is required"],
-      //   minlength: [7, "Too short password"],
-      //   trim: true,
-      // },
       events:[{
           type: Schema.Types.ObjectId,
           ref:"Event"
@@ -21,15 +15,6 @@ const UserSchema = new Schema({
         default: Date.now(),
       },
 });
-
-
-UserSchema.methods.generateHash = (password) => {
-    return bcrypt.hashSync(password, genSaltSync(8));
-  };
-  
-  UserSchema.methods.validPassword = (inputPwd, dbPwd) => {
-    return bcrypt.compareSync(inputPwd, dbPwd);
-  };
 
   const User = model("User", UserSchema);
 
