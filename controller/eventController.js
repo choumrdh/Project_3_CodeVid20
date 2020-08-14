@@ -40,7 +40,6 @@ module.exports = {
         Date: { $in: req.body.dates },
         user: user._id,
       }); 
-      console.log("log=", upcomingEvent);
       upcomingEvent.sort((a,b)=>{
         if (moment(a.Date).isSame(b.Date)){
           return moment(a.Date + " " + a.startTime).isAfter(b.Date + " " + b.startTime) ? 1 : -1;
