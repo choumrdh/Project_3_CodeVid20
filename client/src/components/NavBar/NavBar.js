@@ -12,12 +12,13 @@ const NavBar = () => {
 
         <AppBar position="sticky" style={{ background: "#dedddc", height: "80px" }}>
             <Tabs>
-                <img
+                <img style={{ position:"relative", left:"1%" }}
                     src="https://icon-library.com/images/icon-for-calendar/icon-for-calendar-12.jpg"
                     height="40"
                     alt="logo"
                 />
-                <Tab style={{ color: "black" }} label="Calendate" href="https://github.com/choumrdh/Project_3_CodeVid20" target="_blank" />
+                <Tab style={{ color: "black", position:"relative", left:"5%", fontSize:17 }} label="CodeVid-20 : Calendate" className="teamTab"
+                href="https://github.com/choumrdh/Project_3_CodeVid20" target="_blank" />
                 
                 {isAuthenticated ? <LogoutButton /> : <LoginButton />}
             </Tabs>

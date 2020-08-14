@@ -7,8 +7,8 @@ const LogoutButton = () => {
 
     return (
         <Button
-        variant="contained" color="secondary"
-            onClick={() => logout({ returnTo: window.location.origin, })}>
+        variant="contained" color="secondary" style ={{ position:"relative", left:"10%"}}
+            onClick={() => logout({ returnTo: window.location.origin })}>
             Log Out
         </Button>
     );
