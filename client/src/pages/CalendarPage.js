@@ -20,10 +20,10 @@ export default function CalendarPage() {
   return (
     <>
       <Grid container>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3} alignItems="stretch">
             <SideBar user={user} submitTime={submitTime} />
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={12} sm={9}>
           <Calendar
             userId={userId}
             setSubmitTime={(timeStamp) => setSubmitTime(timeStamp)}

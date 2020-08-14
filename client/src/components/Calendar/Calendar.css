@@ -68,7 +68,7 @@ display: block;
 position: relative;
 width: 100%;
 background: #f9efdc;
-/* border: 1px solid lightgray; */
+border: 1px solid lightgray;
 height: auto;
 margin:0 auto;
 }

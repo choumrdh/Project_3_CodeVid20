@@ -1,5 +1,6 @@
 const db = require("../models");
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 module.exports = {
   create: async (req, res) => {
@@ -38,7 +39,13 @@ module.exports = {
       const upcomingEvent = await db.Event.find({
         Date: { $in: req.body.dates },
         user: user._id,
-      });
+      }); 
+      upcomingEvent.sort((a,b)=>{
+        if (moment(a.Date).isSame(b.Date)){
+          return moment(a.Date + " " + a.startTime).isAfter(b.Date + " " + b.startTime) ? 1 : -1;
+        }
+        return moment(a.Date).isAfter(b.Date) ? 1 : -1;
+      })
       res.json(upcomingEvent);
     } catch (err) {
       res.status(500).json(err);
@@ -59,8 +66,9 @@ module.exports = {
 
   remove: async (req, res) => {
     try {
-      const dbMobel = await (await db.Event.findById({ _id: req.params.id })).deleteOne();
-      res.json(dbMobel);
+
+      const dbModel = await db.Event.findOneAndRemove({ _id: req.params.id });      
+      res.json(dbModel);
     } catch (error) {
       res.status(500).json(error);
     }

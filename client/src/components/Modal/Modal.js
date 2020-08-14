@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Modal, Grid, TextField, Box, Button } from '@material-ui/core';
+import { Modal, Grid, TextField, Box, Button, Typography, Backdrop, Fade } from '@material-ui/core';
 
 
 function rand() {
@@ -20,7 +20,7 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    position: 'absolute',
+    position: 'fixed',
     width: 400,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
@@ -41,61 +41,61 @@ export default function SimpleModal(props) {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <Grid container>
-      <h5>What's the plan for {props.date}?</h5>
+        <Typography component="h5">What's the plan for {props.date}?</Typography>
         <Grid item xs={12}>
           <Box mb={2}>
             <TextField className={classes.root}
-            id="outlined-basic" 
-            onChange={props.handleChange} 
-            value={props.state.event} 
-            name="event" 
-            label="Event" 
-            variant="outlined" 
-            fullWidth={true} />
+              id="outlined-basic"
+              onChange={props.handleChange}
+              value={props.state.event}
+              name="event"
+              label="Event"
+              variant="outlined"
+              fullWidth={true} />
           </Box>
         </Grid>
         <Grid item xs={12}>
           <Box mb={2}>
-            <TextField className={classes.root}             
-            onChange={props.handleChange} 
-            value={props.state.description} 
-            name="description"
-            id="outlined-multiline-flexible"
-            multiline rowsMax={4}  
-            label="Description" 
-            variant="outlined" 
-            fullWidth={true} />
+            <TextField className={classes.root}
+              onChange={props.handleChange}
+              value={props.state.description}
+              name="description"
+              id="outlined-multiline-flexible"
+              multiline rowsMax={4}
+              label="Description"
+              variant="outlined"
+              fullWidth={true} />
           </Box>
         </Grid>
         <Grid item xs={12}>
           <Box mb={2}>
-            <TextField            
-            onChange={props.handleChange} 
-            value={props.state.time} 
-            type="time"
-            name="time" 
-            id="time" 
-            label="Time" 
-            variant="outlined"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            inputProps={{
-              step: 300, // 5 min
-            }} />
+            <TextField
+              onChange={props.handleChange}
+              value={props.state.time}
+              type="time"
+              name="time"
+              id="time"
+              label="Time"
+              variant="outlined"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              inputProps={{
+                step: 300, // 5 min
+              }} />
           </Box>
         </Grid>
         <Grid>
           <Box mb={2}>
             <Button
-            onClick={props.handleSubmit}
-            variant="contained">
-            Submit
+              onClick={props.handleSubmit}
+              variant="contained">
+              Submit
             </Button>
             <Button
-            onClick={props.handleClose}
-            variant="contained">
-            Close
+              onClick={props.handleClose}
+              variant="contained">
+              Close
             </Button>
           </Box>
         </Grid>
@@ -107,10 +107,17 @@ export default function SimpleModal(props) {
     <div>
       <Modal
         open={props.open}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
       >
-        {body}
+        <Fade in={props.open}>
+          {body}
+        </Fade>
       </Modal>
     </div>
   );

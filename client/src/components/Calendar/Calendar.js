@@ -36,12 +36,10 @@ const Calendar = ({userId, setSubmitTime}) => {
    const handleSubmit = event => {
       event.preventDefault();
       const thisDay = format(selectedDate, "P");
-      console.log(thisDay, state.event, state.description, state.time);
       function convert(input) {
          return moment(input, 'HH:mm:ss').format('h:mm:ss A');
      };
      const startTime = convert(state.time);
-     console.log(startTime)
       
       const newEvent ={
       user: userId,
