@@ -79,10 +79,10 @@
 | `react-router-dom`  | [react-router-dom](https://www.npmjs.com/package/react-router-dom)    |
 | `date-fns`          | [date-fns](https://www.npmjs.com/package/date-fns)                    |
 | `axios`             | [axios](https://www.npmjs.com/package/axios)                          |
-| `bcrypt`            | [BCrypt](https://www.npmjs.com/package/bcrypt)                        |
+| `bcrypt`            | [bcrypt](https://www.npmjs.com/package/bcrypt)                        |
 | `express`           | [express](https://www.npmjs.com/package/express)                      |
 | `express-session`   | [express-session](https://www.npmjs.com/package/express-session)      |
-| `dotenv`            | [Dotenv](https://www.npmjs.com/package/dotenv)                        |
+| `dotenv`            | [dotenv](https://www.npmjs.com/package/dotenv)                        |
 | `mongoose`          | [mongoose](https://www.npmjs.com/package/mongoose)                    |
 
 ---
