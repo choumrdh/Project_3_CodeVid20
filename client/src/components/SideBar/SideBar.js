@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActionArea, CardActions, CardContent, Typography, Divider, Button } from '@material-ui/core';
+import { Card, CardActionArea, CardActions, CardContent, Typography, Divider } from '@material-ui/core';
 import './style.css';
 import { format } from "date-fns";
 import API from "../../utils/API";
+import ListItem from '../ListItem/ListItem'
 
 const useStyles = makeStyles({
   root: {
@@ -42,7 +43,9 @@ export default function SideBar({ user, submitTime }) {
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent>
-          <div style={{ color: "white", fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}>
+          <div style={{ 
+            color: "white", 
+            fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}>
             <Typography
               gutterBottom
               variant="h5"
@@ -51,46 +54,41 @@ export default function SideBar({ user, submitTime }) {
               <img
                 src={user.picture}
                 className="profile"
-                style={{ width: "30px" }}
+                style={{ 
+                  width: "30px" 
+                }}
                 alt="profile"></img>
             </Typography>
             <Typography
-              style={{ fontWeight: "bold", color: "white" }}
+              style={{ 
+                fontWeight: "bold", 
+                color: "white" 
+              }}
               component="h3">
               Schedule your events with CalenDate!
               </Typography>
             <Typography
-              style={{ fontWeight: "bold", color: "white" }}
+              style={{ 
+                fontWeight: "bold", 
+                color: "white", 
+                paddingBottom: "10px" 
+              }}
               component="h5">
               Click the date you need to schedule an event and enter the details
               </Typography>
             <Divider />
             {
               upcomingEvents.map((event, i) => {
-                return (<>
-                  <Typography
-                    key={i}
-                    component="h5">
-                    {event.Date}: {event.startTime}
-                    <Button
-                      size="small"
-                      color="primary"
-                      id={event._id}
-                      onClick={() => handleDelete(event._id)}>
-                      Delete
-                    </Button>
-                  </Typography>
-                  <Typography
-                    style={{ color: "white" }}
-                    component="h6">{event.title}
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    style={{ color: "white" }}
-                    variant="body1">
-                    {event.description}
-                  </Typography>
-                  <Divider /></>)
+                return(
+                <ListItem
+                  i={i}
+                  Date={event.Date}
+                  startTime={event.startTime}
+                  id={event._id}
+                  handleDelete={() => handleDelete(event._id)}
+                  title={event.title}
+                  description={event.description}
+                />)
               })}
           </div>
         </CardContent>
